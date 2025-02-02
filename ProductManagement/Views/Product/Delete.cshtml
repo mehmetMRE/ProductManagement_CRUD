@@ -1,0 +1,29 @@
+﻿@model ProductManagement.Models.Product
+
+@{
+    ViewData["Title"] = "Ürün Sil";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Ürün Sil</h1>
+    <h3 class="text-center text-danger">Bu ürünü silmek istediğinizden emin misiniz?</h3>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <dl class="row">
+                <dt class="col-sm-4">Ürün Adı:</dt>
+                <dd class="col-sm-8">@Model.Name</dd>
+
+                <dt class="col-sm-4">Fiyat:</dt>
+                <dd class="col-sm-8">@Model.Price.ToString("C")</dd>
+
+                <dt class="col-sm-4">Stok Miktarı:</dt>
+                <dd class="col-sm-8">@Model.StockQuantity</dd>
+            </dl>
+            <form asp-action="Delete" class="text-center">
+                <input type="hidden" asp-for="Id" />
+                <button type="submit" class="btn btn-danger">Sil</button>
+                <a asp-action="Index" class="btn btn-secondary">İptal</a>
+            </form>
+        </div>
+    </div>
+</div>
